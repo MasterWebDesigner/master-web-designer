@@ -59,6 +59,20 @@
     ::-webkit-scrollbar-track { background: #0F172A; }
     ::-webkit-scrollbar-thumb { background: linear-gradient(#E045FF,#00F0FF); border-radius: 9px; }
     input, select, textarea { outline: none; }
+    /* ===== Soluções por Segmento ===== */
+    .seg-tab { padding: .65rem 1.25rem; border-radius: 9999px; font-size: .8rem; font-weight: 600; color: #94a3b8; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all .3s ease; line-height: 1.2; }
+    .seg-tab:hover { color: #fff; border-color: rgba(0,240,255,0.4); background: rgba(255,255,255,0.06); }
+    .seg-tab.active { color: #fff; background: linear-gradient(135deg, #E045FF 0%, #8B5CF6 50%, #00F0FF 100%); border-color: transparent; box-shadow: 0 0 15px rgba(0,240,255,0.35), inset 0 1px 0 rgba(255,255,255,0.25); }
+    .seg-panel { display: none !important; }
+    .seg-panel.active { display: grid !important; animation: segFade .45s ease; }
+    @keyframes segFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .seg-icon { transition: transform .4s ease; }
+    .seg-card:hover .seg-icon { transform: scale(1.1); }
+    .seg-panel .seg-card { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+    .seg-panel .seg-card.visible { opacity: 1; transform: translateY(0); }
+    .seg-panel .seg-card:nth-child(1) { transition-delay: .05s; }
+    .seg-panel .seg-card:nth-child(2) { transition-delay: .15s; }
+    .seg-panel .seg-card:nth-child(3) { transition-delay: .25s; }
   </style>
 </head>
 <body class="font-sans text-slate-200 antialiased overflow-x-hidden">
@@ -800,6 +814,366 @@ src="Flor.jpg"
             <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>Migração de conteúdo</li>
           </ul>
           <a href="#contato" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-400 hover:text-white transition">Solicitar orçamento →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUÇÕES POR SEGMENTO ===== -->
+  <section id="segmentos" class="relative py-24 bg-[#0F172A]/40">
+    <div class="orb w-96 h-96 bg-[#00F0FF] top-1/4 left-[-8rem] opacity-15"></div>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-gradient">Soluções por Segmento</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">Estratégia sob medida para o <span class="text-gradient">seu negócio</span></h2>
+        <p class="text-slate-400 mt-4">Cada segmento tem desafios próprios. Conheça como resolvemos os problemas mais comuns de cada mercado.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="reveal flex flex-wrap justify-center gap-2.5 mb-14" role="tablist" aria-label="Categorias de segmentos">
+        <button type="button" role="tab" aria-selected="false" class="seg-tab" data-category="all">Todos</button>
+        <button type="button" role="tab" aria-selected="true" class="seg-tab active" data-category="saude">Saúde &amp; Bem-Estar</button>
+        <button type="button" role="tab" aria-selected="false" class="seg-tab" data-category="juridico">Jurídico &amp; Consultorias</button>
+        <button type="button" role="tab" aria-selected="false" class="seg-tab" data-category="residencial">Residencial &amp; Técnicos</button>
+        <button type="button" role="tab" aria-selected="false" class="seg-tab" data-category="educacao">Educação &amp; Treinamentos</button>
+      </div>
+
+      <!-- ===== SAÚDE & BEM-ESTAR ===== -->
+      <div id="seg-saude" role="tabpanel" data-category="saude" class="seg-panel active grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="saude">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-[#EC4899]/10 border border-[#EC4899]/20 grid place-items-center text-[#EC4899]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l2.4 5.6L21 11l-5.6 2.4L13 19l-2.4-5.6L5 11l5.6-2.4L13 3z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-[#EC4899]/10 border border-[#EC4899]/20 grid place-items-center text-[#EC4899] transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Clínicas de Estética &amp; Harmonização</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Falta de apelo visual e dificuldade para agendar avaliações e procedimentos.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Landing page focada em prova social, antes/depois e agendamento direto no WhatsApp.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Cl%C3%ADnicas%20de%20Est%C3%A9tica%20e%20Harmoniza%C3%A7%C3%A3o." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="saude">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-[#00F0FF]/15 border border-[#00F0FF]/25 grid place-items-center text-[#00F0FF]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-[#00F0FF]/15 border border-[#00F0FF]/25 grid place-items-center text-[#00F0FF] transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Psicologia &amp; Saúde Mental</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Barreira de confiança no primeiro contato e pouca clareza nos serviços e agendamento.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Site acolhedor que quebra objeções, transmite segurança ética e facilita o agendamento online.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Psicologia%20e%20Sa%C3%BAde%20Mental." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="saude">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-emerald-400/10 border border-emerald-400/25 grid place-items-center text-emerald-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/25 grid place-items-center text-emerald-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Academias, Estúdios &amp; Pilates</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Captar alunos na região e vender planos de forma competitiva.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Landing de alta conversão com planos, grade de aulas e matrícula direta pelo WhatsApp.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Academias%2C%20Est%C3%BAdios%20e%20Pilates." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+      </div>
+
+      <!-- ===== JURÍDICO & CONSULTORIAS ===== -->
+      <div id="seg-juridico" role="tabpanel" data-category="juridico" class="seg-panel grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="juridico">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/25 grid place-items-center text-[#8B5CF6]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-[#8B5CF6]/15 border border-[#8B5CF6]/25 grid place-items-center text-[#8B5CF6] transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Advocacia Estratégica</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Transmitir autoridade e captar leads qualificados para consultas e defesas.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Site sóbrio e premium com áreas de atuação, prova de autoridade e agendamento de reuniões.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Advocacia%20Estrat%C3%A9gica." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="juridico">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-blue-400/10 border border-blue-400/25 grid place-items-center text-blue-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-blue-400/10 border border-blue-400/25 grid place-items-center text-blue-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Contabilidade &amp; Assessoria Financeira</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Credibilidade limitada e forte dependência do boca a boca para captar clientes.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Site institucional otimizado para SEO local, com formulário de contato e WhatsApp integrado.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Contabilidade%20e%20Assessoria%20Financeira." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="juridico">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/25 grid place-items-center text-amber-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/25 grid place-items-center text-amber-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Consultorias &amp; Coachings</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Converter visitantes em clientes em nichos cada vez mais competitivos.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Presença digital de autoridade com depoimentos, casos de sucesso e CTA direto no WhatsApp.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Consultorias%20e%20Coachings." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+      </div>
+
+      <!-- ===== RESIDENCIAL & TÉCNICOS ===== -->
+      <div id="seg-residencial" role="tabpanel" data-category="residencial" class="seg-panel grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="residencial">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-teal-400/10 border border-teal-400/25 grid place-items-center text-teal-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-teal-400/10 border border-teal-400/25 grid place-items-center text-teal-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Serviços Técnicos &amp; Instalações</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Pouco apelo digital e forte dependência de indicações para conseguir orçamentos.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Site de autoridade com serviços, diferenciais e pedido de orçamento direto pelo WhatsApp.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Servi%C3%A7os%20T%C3%A9cnicos%20e%20Instala%C3%A7%C3%B5es." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="residencial">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-orange-400/10 border border-orange-400/25 grid place-items-center text-orange-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-orange-400/10 border border-orange-400/25 grid place-items-center text-orange-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Restaurantes &amp; Churrascarias</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Atrair o público local, expor o cardápio e captar reservas e eventos.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Vitrine gastronômica imersiva com cardápio irresistível, reservas e atendimento via WhatsApp.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Restaurantes%20e%20Churrascarias." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="residencial">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-fuchsia-400/10 border border-fuchsia-400/25 grid place-items-center text-fuchsia-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-fuchsia-400/10 border border-fuchsia-400/25 grid place-items-center text-fuchsia-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Salões &amp; Estúdios de Beleza</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Mostrar resultados e manter a agenda cheia com agendamentos constantes.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Portfólio visual de transformações com agendamento integrado e clara tabela de serviços.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Sal%C3%B5es%20e%20Est%C3%BAdios%20de%20Beleza." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+      </div>
+
+      <!-- ===== EDUCAÇÃO & TREINAMENTOS ===== -->
+      <div id="seg-educacao" role="tabpanel" data-category="educacao" class="seg-panel grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="educacao">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-[#E045FF]/10 border border-[#E045FF]/25 grid place-items-center text-[#E045FF]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-[#E045FF]/10 border border-[#E045FF]/25 grid place-items-center text-[#E045FF] transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Cursos Online &amp; Infoprodutos</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Converter tráfego pago em vendas para um lançamento ou curso perene.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Landing de lançamento com copy persuasiva, garantia, prova social e checkout integrado.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Cursos%20Online%20e%20Infoprodutos." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="educacao">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-cyan-400/10 border border-cyan-400/25 grid place-items-center text-cyan-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/25 grid place-items-center text-cyan-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Escolas &amp; Cursos Presenciais</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Informar pais e alunos e gerar matrículas em um mercado local competitivo.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Site institucional com turmas, diferenciais, depoimentos e botão de matrícula.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Escolas%20e%20Cursos%20Presenciais." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+
+        <article class="seg-card reveal card-hover glass rounded-3xl p-7 flex flex-col group" data-category="educacao">
+          <div class="flex items-start justify-between gap-4">
+            <div class="seg-icon w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/25 grid place-items-center text-violet-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a3 3 0 00-3 3v5a3 3 0 006 0V6a3 3 0 00-3-3zM19 11a7 7 0 01-14 0M12 18v3m-4 0h8"/></svg>
+            </div>
+            <div aria-hidden="true" class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/25 grid place-items-center text-violet-400 transition-transform duration-300 group-hover:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-4">Palestrantes &amp; Treinadores</h3>
+          <div class="mt-4 space-y-3 flex-1">
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">O Desafio Comum</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Atrair contratações e consolidar a autoridade da marca pessoal.</p>
+            </div>
+            <div class="glass-soft rounded-xl p-4">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-[#00F0FF]">Nossa Solução</p>
+              <p class="text-[13px] text-slate-400 mt-1.5 leading-relaxed">Portfólio executivo com agenda, temas de palestras e CTA direto para contratação.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20gostaria%20de%20um%20site%20para%20o%20segmento%20de%20Palestrantes%20e%20Treinadores." target="_blank" rel="noopener" class="mt-5 btn-gradient text-white text-center text-sm font-semibold px-5 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quero um site para este segmento
+          </a>
+        </article>
+      </div>
+
+      <!-- CTA pós-segmentos -->
+      <div class="reveal glass rounded-3xl p-8 sm:p-10 mt-14 text-center max-w-3xl mx-auto">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Não achou o que procurava?</h3>
+        <p class="text-slate-400 mt-4 text-sm leading-relaxed">Seu negócio é único. Conte o que você precisa e vamos desenhar a solução perfeita para o seu caso.</p>
+        <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="https://wa.me/5511966378328?text=Ol%C3%A1%20Daniel!%20Vim%20pelo%20site%20da%20Master%20Web%20Designer%20e%20n%C3%A3o%20encontrei%20meu%20segmento%20na%20lista.%20Gostaria%20de%20conversar%20sobre%20o%20meu%20caso." target="_blank" rel="noopener" class="btn-gradient text-white text-sm font-semibold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar com um especialista
+          </a>
+          <a href="#contato" class="text-sm font-semibold text-slate-300 px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2 border border-white/15 hover:border-[#00F0FF]/50 hover:text-white transition-all duration-300">
+            Outra forma de contato
+          </a>
         </div>
       </div>
     </div>
@@ -2604,6 +2978,73 @@ src="Flor.jpg"
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
       });
+    })();
+  </script>
+
+  <script>
+    // ===== SOLUÇÕES POR SEGMENTO (abas) =====
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.seg-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.seg-panel'));
+      if (!tabs.length || !panels.length) return;
+
+      var NICHE = {
+        'saude': 'Saúde & Bem-Estar',
+        'juridico': 'Jurídico & Consultorias',
+        'residencial': 'Residencial & Técnicos',
+        'educacao': 'Educação & Treinamentos'
+      };
+
+      document.querySelectorAll('.seg-card[data-category]').forEach(function (card) {
+        var btn = card.querySelector('a[href*="wa.me"]');
+        if (!btn) return;
+        var title = card.querySelector('h3');
+        var niche = title ? title.textContent.trim() : '';
+        var cat = card.getAttribute('data-category');
+        var msg = 'Olá Daniel! Vim pelo site da Master Web Designer e gostaria de um site para o segmento de '
+          + (niche || NICHE[cat] || '')
+          + '.';
+var base = btn.href.split('?')[0];
+        btn.href = base + '?text=' + encodeURIComponent(msg);
+      });
+
+function activate(category) {
+        var isAll = category === 'all';
+
+        tabs.forEach(function (t) {
+          var on = isAll ? t.getAttribute('data-category') === 'all' : t.getAttribute('data-category') === category;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+
+        panels.forEach(function (p) {
+          var target = isAll || p.getAttribute('data-category') === category;
+          p.classList.toggle('active', target);
+          p.style.display = target ? 'grid' : 'none';
+          if (target) {
+            var cards = p.querySelectorAll('.seg-card');
+            cards.forEach(function (c) { c.classList.remove('visible'); });
+            void p.offsetWidth;
+            requestAnimationFrame(function () {
+              cards.forEach(function (c) { c.classList.add('visible'); });
+            });
+          }
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activate(tab.getAttribute('data-category'));
+        });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            tab.click();
+          }
+        });
+      });
+
+      activate('saude');
     })();
   </script>
 
